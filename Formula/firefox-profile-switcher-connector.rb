@@ -17,11 +17,11 @@ class FirefoxProfileSwitcherConnector < Formula
 
     def caveats
       manifest_source = "#{HOMEBREW_CELLAR}/firefox-profile-switcher-connector/#{version}"
-      manifest_destination = "~/Library/Application Support/Mozilla/NativeMessagingHosts"
+      manifest_destination = '~"/Library/Application Support/Mozilla/NativeMessagingHosts"'
       <<~EOS
          The plugin manifest is installed but not linked in Firefox. Run the following two commands to link it:
-             mkdir -p "#{manifest_destination}"
-             ln -sf "#{manifest_source}/#{@@manifest_name}" "#{manifest_destination}/#{@@manifest_name}"
+             mkdir -p #{manifest_destination}
+             ln -sf "#{manifest_source}/#{@@manifest_name}" #{manifest_destination}/#{@@manifest_name}
       EOS
     end
 
