@@ -7,7 +7,7 @@ class FirefoxProfileSwitcherConnector < Formula
     version "0.0.6"
     depends_on "rust" => :build
 
-    @@manifest_name = "ax.md.profile_switcher_ff.json"
+    @@manifest_name = "ax.nd.profile_switcher_ff.json"
 
     def install
       system "cargo", "build", "--release", "--bin", "firefox_profile_switcher_connector"
