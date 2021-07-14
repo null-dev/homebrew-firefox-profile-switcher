@@ -2,9 +2,9 @@ class FirefoxProfileSwitcherConnector < Formula
 
     desc "The native component of the Profile Switcher for Firefox extension."
     homepage "https://github.com/null-dev/firefox-profile-switcher-connector"
-    url "https://github.com/null-dev/firefox-profile-switcher-connector/archive/refs/tags/v0.0.7.tar.gz"
-    sha256 "1fe2075e2a5bd42455b07771f3e6a08cdee6945e859a304ce715899d505555d6"
-    version "0.0.7"
+    url "https://github.com/null-dev/firefox-profile-switcher-connector/archive/refs/tags/v0.0.8.tar.gz"
+    sha256 "96884a699ddff75455e52b6071587d731f526996a76d5c2db7926f4af2f6f2ad"
+    version "0.0.8"
     depends_on "rust" => :build
 
     @@manifest_name = "ax.nd.profile_switcher_ff.json"
