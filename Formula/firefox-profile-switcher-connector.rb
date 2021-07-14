@@ -11,8 +11,18 @@ class FirefoxProfileSwitcherConnector < Formula
 
     def install
       system "cargo", "build", "--release", "--bin", "firefox_profile_switcher_connector"
-      prefix.install "manifest/manifest-mac.json" => @@manifest_name
-      bin.install "target/release/firefox_profile_switcher_connector" => "ff-pswitch-connector"
+
+      bin_name = "ff-pswitch-connector"
+      bin_path = File.expand_path(bin / bin_name)
+      # Fix manifest
+      orig_manifest_path = "manifest/manifest-mac.json"
+      manifest_contents = File.read(orig_manifest_path)
+      manifest_contents = manifest_contents.gsub(/(^\s*"path"\s*:\s*").*("\s*,?\s*$)/) { $1 + bin_path + $2 }
+      File.open(orig_manifest_path, "w") {|f| f.puts manifest_contents }
+
+      # Install files
+      prefix.install orig_manifest_path => @@manifest_name
+      bin.install "target/release/firefox_profile_switcher_connector" => bin_name
     end
 
     def caveats
